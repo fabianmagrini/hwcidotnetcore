@@ -1,0 +1,14 @@
+resources:
+- name: hwcidotnetcore
+  type: git
+  source:
+    uri: https://github.com/fabianmagrini/hwcidotnetcore
+    branch: master
+
+jobs:
+- name: hw-app
+  plan:
+  - get: hwcidotnetcore
+    trigger: true
+  - task: tests
+    file: hwcidotnetcore/build.yml
